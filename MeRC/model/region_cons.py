@@ -154,13 +154,13 @@ class Region_Contra_Loss(nn.Module):
                 negative_gmms.append(gmm)
 
         if len(self.gmm_bank) > 0:
-            negs += self.sample_bank_negatives()
+            negative_gmms += self.sample_bank_negatives()
         
 
 
         negative_similarities = []
 
-        for negative_gmm in negs:
+        for negative_gmm in negative_gmms:
             distance = self.compute_gmm_distance(gmm_anchor, negative_gmm)
             similarity = np.exp(-distance / self.temp)
             negative_similarities.append(similarity)
