@@ -46,7 +46,7 @@ class Region_Contra_Loss(nn.Module):
         self.min_region = 120
         self.max_regions = 5
         self.max_bank_samples = 10
-        self.temp = 5.0
+        self.temp = 5.4
         self.gmm_bank = deque(maxlen=1000)
 
     def forward(self, map_s, map_t, mask=None, index=None):
